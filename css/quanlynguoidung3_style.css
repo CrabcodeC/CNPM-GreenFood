@@ -16,6 +16,10 @@ body {
   line-height: 1.7;
 }
 
+#sauten {
+  margin-bottom: 30px;
+}
+
 header {
   background: var(--dark);
   color: white;

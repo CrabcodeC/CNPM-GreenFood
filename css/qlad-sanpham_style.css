@@ -78,6 +78,7 @@ h1 {
 
 .top-right {
   display: flex;
+
   align-items: center;
   gap: 15px;
 }
