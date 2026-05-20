@@ -15,7 +15,6 @@ body {
   color: #1f2937;
 }
 
-/* Sidebar */
 .sidebar {
   position: fixed;
   left: 0;
@@ -44,6 +43,10 @@ body {
   padding: 12px 25px;
   cursor: pointer;
   transition: 0.3s;
+}
+a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .nav-menu li:hover,

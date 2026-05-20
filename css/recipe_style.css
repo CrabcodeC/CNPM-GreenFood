@@ -1,5 +1,5 @@
 :root {
-  --green: #4caf50;
+  --green: rgba(75, 238, 43, 1);
   --dark: #111827;
 }
 
@@ -29,7 +29,7 @@ body {
 .logo {
   font-size: 2rem;
   font-weight: bold;
-  color: #4caf50;
+  color: rgba(75, 238, 43, 1);
   padding: 0 25px 30px;
   border-bottom: 1px solid #374151;
 }
@@ -39,6 +39,11 @@ body {
   padding: 20px 0;
 }
 
+i,
+a {
+  text-decoration: none;
+  color: #fff;
+}
 .nav-menu li {
   padding: 12px 25px;
   cursor: pointer;
@@ -52,7 +57,6 @@ body {
 
 .nav-menu li.active {
   background: #166534;
-  color: #fff;
   border-left: 4px solid #4caf50;
 }
 
@@ -61,16 +65,9 @@ body {
   padding: 20px;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
 h1 {
   font-size: 1.8rem;
-  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .stats {
@@ -87,15 +84,10 @@ h1 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.stat-card h3 {
-  font-size: 1.1rem;
-  color: #6b7280;
-}
-
 .stat-value {
   font-size: 1.8rem;
   font-weight: bold;
-  margin: 8px 0;
+  color: var(--green);
 }
 
 .table-container {
@@ -103,7 +95,7 @@ h1 {
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 table {
@@ -111,47 +103,44 @@ table {
   border-collapse: collapse;
 }
 
-th {
-  text-align: left;
+th,
+td {
   padding: 15px 12px;
-  background: #f8fafc;
-  font-weight: 500;
-  color: #6b7280;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
 }
 
-td {
-  padding: 16px 12px;
-  border-bottom: 1px solid #f1f5f9;
+th {
+  background: #f8fafc;
+  color: #6b7280;
 }
 
 .status {
   padding: 5px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
-  font-weight: 500;
 }
 
 .active {
   background: #dcfce7;
   color: #166534;
 }
-
 .low-stock {
   background: #fee2e2;
   color: #b91c1c;
 }
 
-.right-panel {
+.add-form {
   background: white;
   border-radius: 12px;
   padding: 25px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  width: 380px;
-  position: fixed;
-  right: 20px;
-  top: 90px;
-  bottom: 20px;
-  overflow-y: auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 .form-group {
@@ -160,13 +149,12 @@ td {
 
 label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-weight: 500;
 }
 
 input,
-textarea,
-select {
+textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ddd;
@@ -174,31 +162,24 @@ select {
 }
 
 textarea {
-  height: 80px;
   resize: vertical;
+  min-height: 80px;
 }
 
 .btn-save {
   background: #4caf50;
   color: white;
   border: none;
-  padding: 14px;
-  width: 100%;
+  padding: 14px 40px;
   border-radius: 50px;
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
-.btn-save:hover {
-  background: #3d9e40;
-}
-
-@media (max-width: 1200px) {
-  .right-panel {
-    position: static;
-    width: 100%;
-    margin-top: 20px;
+@media (max-width: 1024px) {
+  .form-grid {
+    grid-template-columns: 1fr;
   }
 }
