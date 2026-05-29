@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
@@ -22,12 +22,12 @@
     </a>
 
     <ul class="nav-links">
-      <li><a href="#">Rau Củ</a></li>
-      <li><a href="#">Trái Cây</a></li>
-      <li><a href="#">Thực Phẩm</a></li>
-      <li><a href="#">Đồ Uống</a></li>
-      <li><a href="#">Công thức</a></li>
-      <li><a href="#" class="active">Khuyến Mãi</a></li>
+      <li><a href="index.html#vegetable">Rau Củ</a></li>
+      <li><a href="index.html#fruit">Trái Cây</a></li>
+      <li><a href="index.html#fresh">Thực Phẩm</a></li>
+      <li><a href="index.html#drink">Đồ Uống</a></li>
+      <li><a href="goiymonan.html">Công thức</a></li>
+      <li><a href="index.html#sale" class="active">Khuyến Mãi</a></li>
     </ul>
 
     <div class="nav-right">
@@ -35,7 +35,7 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         <input type="text" placeholder="Tìm kiếm thực phẩm tươi sống..." />
       </div>
-      <button class="btn-account">
+      <button class="btn-account" onclick="location.href='login.html'">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         Tài khoản
       </button>
@@ -165,7 +165,7 @@
     <div class="suggestion-card">
       <div class="suggestion-card-title">Món ăn Gợi ý<br>Dành riêng cho bạn</div>
       <p class="suggestion-card-desc">Dựa trên 3 nguyên liệu bạn có sẵn, chúng tôi tìm thấy 12 món ăn phù hợp.</p>
-      <button class="btn-view-all">XEM TẤT CẢ GỢI Ý</button>
+      <button class="btn-view-all" onclick="document.getElementById('recipeGrid').scrollIntoView({behavior:'smooth'})">XEM TẤT CẢ GỢI Ý</button>
     </div>
 
     <div class="trending-card">
@@ -229,7 +229,7 @@
         </div>
         <div class="recipe-title">Súp Cà Chua Trứng Truyền Thống</div>
         <p class="recipe-desc">Một món canh thanh đạm, giàu dinh dưỡng và cực kỳ nhanh gọn cho bữa tối.</p>
-        <a href="#" class="recipe-link">Chi tiết món ăn</a>
+        <a href="recipe.html" class="recipe-link">Chi tiết món ăn</a>
       </div>
     </div>
 
@@ -253,7 +253,7 @@
         </div>
         <div class="recipe-title">Shakshuka – Trứng Hầm Cà Chua</div>
         <p class="recipe-desc">Phiên bản đậm đà hơn với hành tây caramel và sốt cà chua đặc sánh chuẩn vị Địa Trung Hải.</p>
-        <a href="#" class="recipe-link">Chi tiết món ăn</a>
+        <a href="recipe.html" class="recipe-link">Chi tiết món ăn</a>
       </div>
     </div>
 
@@ -277,7 +277,7 @@
         </div>
         <div class="recipe-title">Omelette Rau Củ Siêu Tốc</div>
         <p class="recipe-desc">Kết hợp hai loại trứng, cà chua và hành tây để tạo nên bữa sáng đầy năng lượng.</p>
-        <a href="#" class="recipe-link">Chi tiết món ăn</a>
+        <a href="recipe.html" class="recipe-link">Chi tiết món ăn</a>
       </div>
     </div>
 
@@ -289,7 +289,7 @@
   <div class="footer-inner">
     <!-- Brand -->
     <div class="footer-brand">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <div class="logo-icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 000 20"/><path d="M12 2c2.5 4 4 8 4 10s-1.5 6-4 10"/><path d="M2 12h20"/></svg>
         </div>
@@ -313,9 +313,9 @@
     <div class="footer-col">
       <h4>Sản phẩm</h4>
       <ul>
-        <li><a href="#">Rau củ hữu cơ</a></li>
-        <li><a href="#">Trái cây nhập khẩu</a></li>
-        <li><a href="#">Thực phẩm tươi sống</a></li>
+        <li><a href="index.html#vegetable">Rau củ hữu cơ</a></li>
+        <li><a href="index.html#fruit">Trái cây nhập khẩu</a></li>
+        <li><a href="index.html#fresh">Thực phẩm tươi sống</a></li>
       </ul>
     </div>
 
@@ -323,10 +323,10 @@
     <div class="footer-col">
       <h4>Chính sách</h4>
       <ul>
-        <li><a href="#">Giao hàng & Đổi trả</a></li>
-        <li><a href="#">Bảo mật thông tin</a></li>
-        <li><a href="#">Điều khoản dịch vụ</a></li>
-        <li><a href="#">Hệ thống cửa hàng</a></li>
+        <li><a href="chinhsachbaomat.html">Giao hàng & Đổi trả</a></li>
+        <li><a href="chinhsachbaomat.html">Bảo mật thông tin</a></li>
+        <li><a href="quanlynguoidung3.html">Điều khoản dịch vụ</a></li>
+        <li><a href="quanlynguoidung2.html">Hệ thống cửa hàng</a></li>
       </ul>
     </div>
 
@@ -344,8 +344,8 @@
   <div class="footer-bottom">
     <p>© 2026 Fresh Market. Tất cả quyền được bảo lưu.</p>
     <div class="footer-bottom-links">
-      <a href="#">Vietnamese</a>
-      <a href="#">English</a>
+      <a href="index.html">Vietnamese</a>
+      <a href="index.html">English</a>
     </div>
   </div>
 </footer>
