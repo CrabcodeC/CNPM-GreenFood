@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/qlad-sanpham_style.css" />
+    <link rel="stylesheet" href="css/quanlyadmin-nguoidung.css" />
     <title>Quản lý sản phẩm - GreenFood</title>
     <link
       rel="stylesheet"
@@ -11,21 +12,124 @@
     />
   </head>
   <body>
-    <div class="sidebar">
-      <div class="logo">GreenFood</div>
-      <ul class="nav-menu">
-        <li><i class="fas fa-home"></i> <a href="index.html">Trang chủ</a></li>
-        <li class="active">
-          <i class="fas fa-store"></i>
-          <a href="qlad-sanpham.html">Sản phẩm</a>
-        </li>
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <a href="index.html" style="text-decoration: none">GreenFood</a>
+      </div>
 
-        <li>
-          <i class="fas fa-utensils"></i> <a href="recipe.html">Công thức</a>
-        </li>
-        <li><i class="fas fa-users"></i> <a href="quanlyadmin-nguoidung.html">Khách hàng</a></li>
-      </ul>
-    </div>
+      <nav class="sidebar-nav">
+        <div class="nav-item" onclick="setActive(this)">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+          Dashboard
+        </div>
+        <div class="nav-item" onclick="setActive(this)">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 01-8 0" />
+          </svg>
+          Marketplace
+        </div>
+        <div class="nav-item" onclick="setActive(this)">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+          </svg>
+          Recipes
+        </div>
+        <div class="nav-item active" onclick="setActive(this)">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 00-3-3.87" />
+            <path d="M16 3.13a4 4 0 010 7.75" />
+          </svg>
+          Customers
+        </div>
+        <div class="nav-item" onclick="setActive(this)">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="12" y1="1" x2="12" y2="23" />
+            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+          </svg>
+          Revenue
+        </div>
+      </nav>
+
+      <div class="sidebar-user">
+        <div class="user-avatar">AD</div>
+        <div class="user-info">
+          <div class="user-name">Ten Admin</div>
+          <div class="user-role">Chuc vu Admin</div>
+        </div>
+        <button class="settings-btn" title="Settings">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"
+            />
+          </svg>
+        </button>
+      </div>
+    </aside>
     <div class="main">
       <header>
         <h1><strong> Quản lý sản phẩm</strong></h1>
@@ -204,5 +308,48 @@
         <button class="btn-publish">THÊM SẢN PHẨM VÀO CHỢ</button>
       </div>
     </div>
+    <script>
+      /* ── Cập nhật trạng thái Active ở Sidebar ── */
+      /* ── Cập nhật trạng thái Active ở Sidebar ── */
+      function setActive(el) {
+        document
+          .querySelectorAll(".nav-item")
+          .forEach((n) => n.classList.remove("active"));
+        el.classList.add("active");
+      }
+
+      /* ── Xử lý cơ bản form thêm sản phẩm ── */
+      function addProduct() {
+        const name = document.getElementById("productName")?.value.trim();
+        const price = document.getElementById("productPrice")?.value;
+        const quantity = document.getElementById("productQuantity")?.value;
+        const category = document.getElementById("productCategory")?.value;
+
+        if (!name) {
+          alert("⚠️ Vui lòng nhập tên sản phẩm!");
+          return;
+        }
+
+        if (price <= 0 || quantity <= 0) {
+          alert("⚠️ Vui lòng nhập giá và số lượng hợp lệ!");
+          return;
+        }
+
+        // Thông báo thành công mô phỏng
+        alert(
+          `✅ Đã thêm sản phẩm "${name}" (Danh mục: ${category}) vào chợ thành công!`,
+        );
+
+        // Reset lại form
+        if (document.getElementById("productName"))
+          document.getElementById("productName").value = "";
+        if (document.getElementById("productPrice"))
+          document.getElementById("productPrice").value = "0.00";
+        if (document.getElementById("productQuantity"))
+          document.getElementById("productQuantity").value = "0";
+        if (document.getElementById("productCategory"))
+          document.getElementById("productCategory").selectedIndex = 0;
+      }
+    </script>
   </body>
 </html>

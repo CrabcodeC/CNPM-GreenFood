@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi Tiết Món Ăn - GreenFood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* TOÀN BỘ CSS CỦA ÔNG GIỮ NGUYÊN KHÔNG ĐỔI 1 DÒNG NÀO */
+      :root {
+        --primary: #22c55e;
+        --primary-dark: #16a34a;
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+        --bg-body: #fafaf9;
+        --bg-card: #f8fafc;
+        --border-color: #e2e8f0;
+        --font-main: "Plus Jakarta Sans", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: var(--font-main);
+        color: var(--text-main);
+        background-color: var(--bg-body);
+        line-height: 1.6;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul,
+      ol {
+        list-style: none;
+      }
+      button {
+        cursor: pointer;
+        border: none;
+        font-family: inherit;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .site-header {
+        background: white;
+        border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+      .brand {
+        font-size: 24px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .brand-mark {
+        background: var(--primary);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-size: 16px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        font-weight: 600;
+      }
+      .nav-links a.active,
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .search-box input {
+        padding: 8px 16px;
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        outline: none;
+      }
+      .account-btn {
+        background: none;
+        font-weight: 600;
+      }
+      .cart-btn {
+        background: var(--bg-card);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        position: relative;
+        font-weight: 700;
+      }
+      .site-footer {
+        background: white;
+        padding: 60px 0 20px;
+        border-top: 1px solid var(--border-color);
+        margin-top: 60px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      .footer-grid h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      .footer-grid a {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--text-muted);
+      }
+      .copyright {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 14px;
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+      }
+      .recipe-page {
+        padding: 40px 0;
+      }
+      .recipe-hero {
+        position: relative;
+        width: 100%;
+        height: 450px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 40px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: flex-end;
+      }
+      .recipe-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(15, 23, 42, 0.9) 0%,
+          rgba(15, 23, 42, 0.4) 50%,
+          rgba(15, 23, 42, 0) 100%
+        );
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 40px;
+        color: white;
+        width: 100%;
+      }
+      .recipe-tag {
+        display: inline-block;
+        background-color: var(--primary);
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 20px;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .hero-content h1 {
+        font-size: 42px;
+        font-weight: 800;
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+      .recipe-meta {
+        display: flex;
+        gap: 24px;
+        font-size: 15px;
+        font-weight: 500;
+        opacity: 0.9;
+      }
+      .recipe-meta span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .recipe-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+      }
+      .recipe-steps h2 {
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 30px;
+      }
+      .step-item {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+      .step-number {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        background-color: var(--primary-dark);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .step-content h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--text-main);
+      }
+      .step-content p {
+        color: var(--text-muted);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+      .sidebar-card {
+        background-color: var(--bg-card);
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 24px;
+      }
+      .sidebar-card h3 {
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 24px;
+        letter-spacing: 0.5px;
+      }
+      .nutrition-box {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+      }
+      .nutrient {
+        border-right: 1px solid var(--border-color);
+        flex: 1;
+      }
+      .nutrient:last-child {
+        border-right: none;
+      }
+      .nutrient strong {
+        display: block;
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--primary);
+      }
+      .nutrient span {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-muted);
+        margin-top: 4px;
+        text-transform: uppercase;
+      }
+      .ingredient-list li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text-main);
+      }
+      .custom-checkbox {
+        width: 20px;
+        height: 20px;
+        background-color: var(--primary);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .custom-checkbox::after {
+        content: "";
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        margin-bottom: 2px;
+      }
+      .add-cart-btn {
+        width: 100%;
+        background-color: var(--primary);
+        color: white;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 16px;
+        border-radius: 12px;
+        margin-top: 10px;
+        transition: background 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .add-cart-btn:hover {
+        background-color: var(--primary-dark);
+      }
+      @media (max-width: 900px) {
+        .recipe-layout {
+          grid-template-columns: 1fr;
+        }
+        .recipe-hero {
+          height: 350px;
+        }
+        .hero-content h1 {
+          font-size: 32px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="brand" href="index.html" aria-label="GreenFood">
+          <span class="brand-mark">GF</span><span>GreenFood</span>
+        </a>
+        <nav class="nav-links" aria-label="Điều hướng chính">
+          <a href="index.html#vegetable">Rau Củ</a>
+          <a href="index.html#fruit">Trái Cây</a>
+          <a href="index.html#fresh">Thực Phẩm</a>
+          <a href="index.html#drink">Đồ Uống</a>
+          <a class="active" href="goiymonan.html">Công thức</a>
+          <a class="sale-link" href="index.html#sale" style="color: #ef4444"
+            >Khuyến Mãi</a
+          >
+        </nav>
+        <div class="nav-actions">
+          <label class="search-box"><input placeholder="Tìm kiếm..." /></label>
+          <button class="account-btn" onclick="location.href = 'login.html'">
+            Tài khoản
+          </button>
+          <button
+            class="cart-btn"
+            aria-label="Giỏ hàng"
+            onclick="location.href = 'giohang.html'"
+          >
+            3
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="recipe-page container">
+      <section
+        class="recipe-hero"
+        id="recipeHero"
+        style="
+          background-image: url(&quot;https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80&quot;);
+        "
+      >
+        <div class="hero-content">
+          <span class="recipe-tag" id="recipeTag">Healthy Choice</span>
+          <h1 id="recipeTitle">Salad Ức Gà Áp Chảo Sốt Mè Rang</h1>
+          <div class="recipe-meta" id="recipeMeta">
+            <span>🕒 25 minutes</span>
+            <span>🔥 320 kcal</span>
+            <span>📊 Difficulty: Easy</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="recipe-layout">
+        <section class="recipe-steps">
+          <h2>Các bước chế biến</h2>
+          <div id="recipeStepsContainer"></div>
+        </section>
+
+        <aside class="recipe-sidebar">
+          <div class="sidebar-card">
+            <h3>Dinh dưỡng của món ăn</h3>
+            <div class="nutrition-box" id="recipeNutrition"></div>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Nguyên liệu</h3>
+            <ul class="ingredient-list" id="recipeIngredients"></ul>
+            <button class="add-cart-btn">
+              🛒 Thêm nguyên liệu vào giỏ hàng
+            </button>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="index.html" style="margin-bottom: 15px">
+            <span class="brand-mark">GF</span><span>Green Food</span>
+          </a>
+          <p style="color: var(--text-muted)">
+            Mang trải nghiệm chợ nông sản đến tận cửa nhà bạn. Thuần khiết, hữu
+            cơ và luôn tươi mới.
+          </p>
+        </div>
+        <div>
+          <h3>Liên Kết Nhanh</h3>
+          <a href="index.html">Cửa hàng</a>
+          <a href="goiymonan.html">Gợi ý món ăn</a>
+          <a href="register.html">Đăng ký</a>
+          <a href="lichsu.html">Lịch sử mua hàng</a>
+        </div>
+        <div>
+          <h3>Hỗ Trợ</h3>
+          <a href="chinhsachbaomat.html">Chính Sách Giao Hàng</a>
+          <a href="quanlynguoidung3.html">Điều Khoản Dịch Vụ</a>
+          <a href="chinhsachbaomat.html">Chính Sách Bảo Mật</a>
+          <a href="quanlynguoidung1.html">Tài khoản của tôi</a>
+        </div>
+        <div>
+          <h3>Bản Tin</h3>
+          <p style="color: var(--text-muted); margin-bottom: 10px">
+            Nhận công thức và ưu đãi qua email của bạn.
+          </p>
+          <div style="display: flex; gap: 10px">
+            <input
+              type="text"
+              placeholder="your@email.com"
+              style="
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                width: 100%;
+              "
+            />
+            <button
+              style="
+                background: var(--primary);
+                color: white;
+                padding: 10px 15px;
+                border-radius: 6px;
+              "
+            >
+              Đăng Ký
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="container copyright">
+        © 2026 GreenFood. Bảo lưu mọi quyền. Nguồn gốc địa phương, tầm nhìn toàn
+        cầu.
+      </div>
+    </footer>
+
+    <script>
+      // 1. Dữ liệu giả lập (Mock DB)
+      const recipeDatabase = {
+        default: {
+          title: "Salad Ức Gà Áp Chảo Sốt Mè Rang",
+          tag: "Healthy Choice",
+          image:
+            "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80",
+          meta: ["🕒 25 phút", "🔥 320 kcal", "📊 Độ khó: Dễ"],
+          steps: [
+            {
+              title: "Sơ chế ức gà",
+              desc: "Rửa sạch ức gà dưới vòi nước lạnh, sau đó dùng khăn giấy thấm thật khô bề mặt. Ướp gà với một ít muối, tiêu xay và tỏi băm nhuyễn.",
+            },
+            {
+              title: "Áp chảo thịt gà",
+              desc: "Làm nóng chảo với một chút dầu ô liu trên lửa vừa. Khi chảo đã nóng, đặt miếng ức gà vào và áp chảo mỗi mặt khoảng 5-7 phút.",
+            },
+            {
+              title: "Chuẩn bị rau củ",
+              desc: "Rửa sạch xà lách Kale hoặc Romaine, cà chua bi và dưa leo dưới vòi nước. Cắt nhỏ vừa ăn.",
+            },
+            {
+              title: "Hoàn thiện",
+              desc: "Thái ức gà thành lát mỏng. Xếp rau xanh xuống đĩa, đặt gà lên trên, rưới sốt mè rang Kewpie.",
+            },
+          ],
+          nutrition: { protein: "35g", carbs: "12g", fat: "18g" },
+          ingredients: [
+            "Ức gà tươi (200 gram)",
+            "Xà lách Kale (100 gram)",
+            "Sốt mè rang (2 muỗng)",
+            "Cà chua bi (5 quả)",
+          ],
+        },
+        "sup-ca-chua": {
+          title: "Súp Cà Chua Trứng Truyền Thống",
+          tag: "Nhanh Gọn",
+          image: "img/supcachuatrung.jpg",
+          meta: ["🕒 15 phút", "🔥 150 kcal", "📊 Độ khó: Dễ"],
+          steps: [
+            {
+              title: "Sơ chế",
+              desc: "Rửa sạch cà chua, thái múi cau. Hành lá rửa sạch, thái nhỏ.",
+            },
+            {
+              title: "Đánh trứng",
+              desc: "Đập 2 quả trứng ra bát, nêm 1 chút muối hoặc mắm và đánh tan đều.",
+            },
+            {
+              title: "Xào cà chua",
+              desc: "Cho dầu ăn vào nồi, phi thơm đầu hành trắng, cho cà chua vào xào đến khi nhuyễn để ra màu đỏ đẹp.",
+            },
+            {
+              title: "Hoàn thiện",
+              desc: "Thêm lượng nước vừa ăn đun sôi. Từ từ đổ bát trứng vào nồi, khuấy nhẹ tay để tạo vân trứng. Nêm nếm lại, rắc hành lá rồi tắt bếp.",
+            },
+          ],
+          nutrition: { protein: "12g", carbs: "8g", fat: "9g" },
+          ingredients: [
+            "Cà chua (2 quả)",
+            "Trứng gà (2 quả)",
+            "Hành lá, gia vị",
+            "Dầu ăn (1 muỗng)",
+          ],
+        },
+        shakshuka: {
+          title: "Shakshuka – Trứng Hầm Cà Chua",
+          tag: "Địa Trung Hải",
+          image: "img/shakshuka.webp",
+          meta: ["🕒 25 phút", "🔥 280 kcal", "📊 Độ khó: Trung bình"],
+          steps: [
+            {
+              title: "Làm sốt cà chua",
+              desc: "Phi thơm hành tây và tỏi. Cho cà chua thái lựu và sốt cà chua đặc vào chảo. Nêm thêm ớt bột Paprika và thì là Ai Cập.",
+            },
+            {
+              title: "Hầm sốt",
+              desc: "Đun nhỏ lửa trong khoảng 10-15 phút cho đến khi hỗn hợp sốt cà chua đặc sệt lại.",
+            },
+            {
+              title: "Thêm trứng",
+              desc: "Dùng thìa tạo các lỗ nhỏ trên mặt sốt, đập trực tiếp trứng gà vào từng lỗ đó.",
+            },
+            {
+              title: "Hoàn thành",
+              desc: "Đậy nắp chảo và đun thêm 5-8 phút tùy sở thích ăn trứng lòng đào hay chín kỹ. Rắc ngò rí và thưởng thức kèm bánh mì.",
+            },
+          ],
+          nutrition: { protein: "18g", carbs: "20g", fat: "15g" },
+          ingredients: [
+            "Trứng gà (3 quả)",
+            "Cà chua chín (4 quả)",
+            "Hành tây (1/2 củ)",
+            "Tỏi, ngò rí",
+            "Gia vị Shakshuka",
+          ],
+        },
+        omelette: {
+          title: "Omelette Rau Củ Siêu Tốc",
+          tag: "Bữa Sáng",
+          image: "img/omeletteraucu.png",
+          meta: ["🕒 10 phút", "🔥 220 kcal", "📊 Độ khó: Siêu dễ"],
+          steps: [
+            {
+              title: "Thái nhỏ nguyên liệu",
+              desc: "Thái hạt lựu hành tây, cà chua (bỏ hạt để không bị chảy nước) và ớt chuông.",
+            },
+            {
+              title: "Đánh trứng",
+              desc: "Đánh tan trứng gà cùng với một chút sữa tươi (giúp trứng béo và mềm hơn), nêm tiêu và muối.",
+            },
+            {
+              title: "Tráng trứng",
+              desc: "Làm nóng chảo bơ. Đổ hỗn hợp trứng vào tráng đều khắp mặt chảo.",
+            },
+            {
+              title: "Cuộn rau củ",
+              desc: "Khi mặt dưới trứng đã se lại, rải đều rau củ lên một nửa mặt trứng. Gấp nửa còn lại lên trên, áp chảo thêm 1 phút là hoàn thành.",
+            },
+          ],
+          nutrition: { protein: "15g", carbs: "5g", fat: "16g" },
+          ingredients: [
+            "Trứng gà (2-3 quả)",
+            "Cà chua bi (5 quả)",
+            "Hành tây (1/4 củ)",
+            "Bơ lạt (1 miếng nhỏ)",
+            "Sữa tươi (tùy chọn)",
+          ],
+        },
+      };
+
+      // 2. Lấy ID từ URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const recipeId = urlParams.get("id");
+
+      // Nếu ID tồn tại trong data thì dùng, không thì lấy data mặc định
+      const currentRecipe =
+        recipeDatabase[recipeId] || recipeDatabase["default"];
+
+      // 3. Render dữ liệu ra DOM
+      document.getElementById("recipeHero").style.backgroundImage =
+        `url('${currentRecipe.image}')`;
+      document.getElementById("recipeTag").innerText = currentRecipe.tag;
+      document.getElementById("recipeTitle").innerText = currentRecipe.title;
+
+      // Render Meta
+      document.getElementById("recipeMeta").innerHTML = currentRecipe.meta
+        .map((item) => `<span>${item}</span>`)
+        .join("");
+
+      // Render Steps
+      const stepsHTML = currentRecipe.steps
+        .map(
+          (step, index) => `
+        <div class="step-item">
+          <div class="step-number">${index + 1}</div>
+          <div class="step-content">
+            <h3>${step.title}</h3>
+            <p>${step.desc}</p>
+          </div>
+        </div>
+      `,
+        )
+        .join("");
+      document.getElementById("recipeStepsContainer").innerHTML = stepsHTML;
+
+      // Render Nutrition
+      document.getElementById("recipeNutrition").innerHTML = `
+        <div class="nutrient"><strong>${currentRecipe.nutrition.protein}</strong><span>Protein</span></div>
+        <div class="nutrient"><strong>${currentRecipe.nutrition.carbs}</strong><span>Carbs</span></div>
+        <div class="nutrient"><strong>${currentRecipe.nutrition.fat}</strong><span>Fat</span></div>
+      `;
+
+      // Render Ingredients
+      const ingredientsHTML = currentRecipe.ingredients
+        .map(
+          (ing) => `
+        <li>
+          <span class="custom-checkbox"></span>
+          <span>${ing}</span>
+        </li>
+      `,
+        )
+        .join("");
+      document.getElementById("recipeIngredients").innerHTML = ingredientsHTML;
+    </script>
+  </body>
+</html>

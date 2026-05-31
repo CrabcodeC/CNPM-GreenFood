@@ -1,67 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quản Lý Địa Chỉ</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lý Địa Chỉ</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="css/quanlynguoidung2.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/quanlynguoidung2.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <h1><a href="index.html" style="text-decoration: none">GreenFood</a></h1>
+    </header>
 
-  <!-- HEADER -->
-  <header class="header">
-    <h1><a href="index.html">GreenFood</a></h1>
-  </header>
-
-  <!-- MAIN -->
-  <main class="container">
-
-    <!-- TITLE -->
-    <div class="title">
-      <span class="icon">📍</span>
-      <h2>Sổ địa chỉ</h2>
-    </div>
-
-    <!-- SEARCH -->
-    <div class="search-wrapper">
-
-      <div class="search-box">
-        <span class="search-icon">⌕</span>
-
-        <input type="text" placeholder="Tìm kiếm">
-
-        <span class="close-icon">x</span>
+    <!-- MAIN -->
+    <main class="container">
+      <!-- TITLE -->
+      <div class="title">
+        <span class="icon">📍</span>
+        <h2>Sổ địa chỉ</h2>
       </div>
 
-      <button class="add-btn" onclick="alert('Chức năng thêm địa chỉ sẽ được cập nhật sau.')">
-        + Thêm địa chỉ mới
-      </button>
+      <!-- SEARCH -->
+      <div class="search-wrapper">
+        <div class="search-box">
+          <span class="search-icon">⌕</span>
 
-    </div>
+          <input type="text" placeholder="Tìm kiếm" />
 
-    <!-- ADDRESS LIST -->
-    <ul class="address-list">
+          <span class="close-icon">x</span>
+        </div>
 
-      <li>
-        997 Phạm Thế Hiển, Phường Chánh Hưng, Quận 8,TPHCM
-      </li>
+        <button
+          class="add-btn"
+          onclick="alert('Chức năng thêm địa chỉ sẽ được cập nhật sau.')"
+        >
+          + Thêm địa chỉ mới
+        </button>
+      </div>
 
-      <li>
-        302 Đường Phạm Hùng, Phường Chánh Hưng, Quận 8,TPHCM
-      </li>
+      <!-- ADDRESS LIST -->
+      <ul class="address-list">
+        <li>997 Phạm Thế Hiển, Phường Chánh Hưng, Quận 8,TPHCM</li>
 
-      <li>
-        856 Đường Tạ Quang Bửu, Phường Chánh Hưng, Quận 8,TPHCM
-      </li>
+        <li>302 Đường Phạm Hùng, Phường Chánh Hưng, Quận 8,TPHCM</li>
 
-    </ul>
-
-  </main>
-
-  
-</body>
+        <li>856 Đường Tạ Quang Bửu, Phường Chánh Hưng, Quận 8,TPHCM</li>
+      </ul>
+    </main>
+  </body>
 </html>
